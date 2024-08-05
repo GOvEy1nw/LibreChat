@@ -55,7 +55,7 @@ const BookmarkEditDialog = ({
               type="submit"
               disabled={isLoading}
               onClick={handleSubmitForm}
-              className="btn rounded bg-green-500 font-bold text-white transition-all hover:bg-green-600"
+              className="btn rounded bg-sky-500 font-bold text-white transition-all hover:bg-sky-600"
             >
               {isLoading ? <Spinner /> : localize('com_ui_save')}
             </button>

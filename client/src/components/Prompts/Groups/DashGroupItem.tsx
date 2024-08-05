@@ -109,7 +109,7 @@ export default function DashGroupItem({
                 />
                 <Button
                   variant="subtle"
-                  className="w-min bg-green-500 text-white hover:bg-green-600 dark:bg-green-400 dark:hover:bg-green-500"
+                  className="w-min bg-sky-500 text-white hover:bg-sky-600 dark:bg-sky-400 dark:hover:bg-sky-500"
                   onClick={(e) => {
                     e.stopPropagation();
                     saveRename();
@@ -132,7 +132,7 @@ export default function DashGroupItem({
                   </h3>
                 </div>
                 <div className="flex flex-row items-center gap-1">
-                  {groupIsGlobal && <EarthIcon className="icon-md text-green-400" />}
+                  {groupIsGlobal && <EarthIcon className="icon-md text-sky-400" />}
                   {(isOwner || user?.role === SystemRoles.ADMIN) && (
                     <>
                       <DropdownMenu>

@@ -136,7 +136,7 @@ const SharePrompt = ({ group, disabled }: { group?: TPromptGroup; disabled: bool
               <button
                 type="submit"
                 disabled={isSubmitting || isFetching}
-                className="btn rounded bg-green-500 font-bold text-white transition-all hover:bg-green-600"
+                className="btn rounded bg-sky-500 font-bold text-white transition-all hover:bg-sky-600"
               >
                 {localize('com_ui_save')}
               </button>

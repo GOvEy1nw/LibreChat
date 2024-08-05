@@ -55,9 +55,9 @@ function AuthLayout({
   };
 
   return (
-    <div className="relative flex min-h-screen flex-col bg-white dark:bg-gray-900">
+    <div className="relative flex min-h-screen flex-col bg-white dark:bg-gray-900" style={{ display: 'flex', justifyContent: 'center' }}>
       <BlinkAnimation active={isFetching}>
-        <div className="mt-12 h-24 w-full bg-cover">
+        <div className="mt-12 w-full bg-cover" style={{ height: '14rem' }}>
           <img src="/assets/raischat.webp" className="h-full w-full object-contain" alt="Logo" />
         </div>
       </BlinkAnimation>
@@ -66,14 +66,13 @@ function AuthLayout({
         <ThemeSelector />
       </div>
 
-      <div className="flex flex-grow items-center justify-center">
+      <div className="flex items-center justify-center">
         <div className="w-authPageWidth overflow-hidden bg-white px-6 py-4 dark:bg-gray-900 sm:max-w-md sm:rounded-lg">
           {!startupConfigError && !isFetching && (
             <h1
               className="mb-4 text-center text-3xl font-semibold text-black dark:text-white"
               style={{ userSelect: 'none' }}
             >
-              {header}
             </h1>
           )}
           {children}

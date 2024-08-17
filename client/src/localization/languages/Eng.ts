@@ -220,6 +220,8 @@ export default {
   com_ui_import_conversation_file_type_error: 'Unsupported import type',
   com_ui_confirm_action: 'Confirm Action',
   com_ui_chat: 'Chat',
+  com_ui_chat_history: 'Chat History',
+  com_ui_controls: 'Controls',
   com_ui_dashboard: 'Dashboard',
   com_ui_chats: 'chats',
   com_ui_avatar: 'Avatar',
@@ -294,7 +296,6 @@ export default {
   com_ui_min_tags: 'Cannot remove more values, a minimum of {0} are required.',
   com_ui_max_tags: 'Maximum number allowed is {0}, using latest values.',
   com_ui_bookmarks: 'Bookmarks',
-  com_ui_bookmarks_rebuild: 'Rebuild',
   com_ui_bookmarks_new: 'New Bookmark',
   com_ui_bookmark_delete_confirm: 'Are you sure you want to delete this bookmark?',
   com_ui_bookmarks_title: 'Title',
@@ -308,6 +309,8 @@ export default {
   com_ui_bookmarks_delete_error: 'There was an error deleting the bookmark',
   com_ui_bookmarks_add_to_conversation: 'Add to current conversation',
   com_ui_bookmarks_filter: 'Filter bookmarks...',
+  com_ui_no_bookmarks: 'it seems like you have no bookmarks yet. Click on a chat and add a new one',
+  com_ui_no_conversation_id: 'No conversation ID found',
   com_auth_error_login:
     'Unable to login with the information provided. Please check your credentials and try again.',
   com_auth_error_login_rl:
@@ -553,6 +556,13 @@ export default {
   com_endpoint_config_key_google_service_account: 'Create a Service Account',
   com_endpoint_config_key_google_vertex_api_role:
     'Make sure to click \'Create and Continue\' to give at least the \'Vertex AI User\' role. Lastly, create a JSON key to import here.',
+  com_nav_account_settings: 'Account Settings',
+  com_nav_font_size: 'Message Font Size',
+  com_nav_font_size_xs: 'Extra Small',
+  com_nav_font_size_sm: 'Small',
+  com_nav_font_size_base: 'Medium',
+  com_nav_font_size_lg: 'Large',
+  com_nav_font_size_xl: 'Extra Large',
   com_nav_welcome_assistant: 'Please Select an Assistant',
   com_nav_welcome_message: 'How can I help you today?',
   com_nav_auto_scroll: 'Auto-Scroll to latest message on chat open',
@@ -583,6 +593,7 @@ export default {
   com_ui_drag_drop_file: 'Drag and drop a file here',
   com_ui_upload_image: 'Upload an image',
   com_ui_select_a_category: 'No category selected',
+  com_ui_clear_all: 'Clear all',
   com_nav_tool_dialog_description: 'Assistant must be saved to persist tool selections.',
   com_show_agent_settings: 'Show Agent Settings',
   com_show_completion_settings: 'Show Completion Settings',
@@ -657,8 +668,19 @@ export default {
   com_nav_audio_play_error: 'Error playing audio: {0}',
   com_nav_audio_process_error: 'Error processing audio: {0}',
   com_nav_long_audio_warning: 'Longer texts will take longer to process.',
+  com_nav_tts_init_error: 'Failed to initialize text-to-speech: {0}',
+  com_nav_tts_unsupported_error:
+    'Text-to-speech for the selected engine is not supported in this browser.',
+  com_nav_source_buffer_error: 'Error setting up audio playback. Please refresh the page.',
+  com_nav_media_source_init_error:
+    'Unable to prepare audio player. Please check your browser settings.',
+  com_nav_buffer_append_error: 'Problem with audio streaming. The playback may be interrupted.',
+  com_nav_speech_cancel_error: 'Unable to stop audio playback. You may need to refresh the page.',
+  com_nav_voices_fetch_error:
+    'Could not retrieve voice options. Please check your internet connection.',
   com_nav_engine: 'Engine',
   com_nav_browser: 'Browser',
+  com_nav_edge: 'Edge',
   com_nav_external: 'External',
   com_nav_delete_cache_storage: 'Delete TTS cache storage',
   com_nav_enable_cache_tts: 'Enable cache TTS',
@@ -680,8 +702,6 @@ export default {
     'This action will revoke and remove all the API keys that you have provided. You will need to re-enter these credentials to continue using those endpoints.',
   com_nav_info_delete_cache_storage:
     'This action will delete all cached TTS (Text-to-Speech) audio files stored on your device. Cached audio files are used to speed up playback of previously generated TTS audio, but they can consume storage space on your device.',
-  com_nav_info_bookmarks_rebuild:
-    'If the bookmark count is incorrect, please rebuild the bookmark information. The bookmark count will be recalculated and the data will be restored to its correct state.',
   // Command Settings Tab
   com_nav_commands: 'Commands',
   com_nav_commands_tab: 'Command Settings',

@@ -83,16 +83,19 @@ class AnthropicClient extends BaseClient {
       this.options = options;
     }
 
-    const modelOptions = this.options.modelOptions || {};
-    this.modelOptions = {
-      ...modelOptions,
-      model: modelOptions.model || anthropicSettings.model.default,
-    };
+    this.modelOptions = Object.assign(
+      {
+        model: anthropicSettings.model.default,
+      },
+      this.modelOptions,
+      this.options.modelOptions,
+    );
 
     const modelMatch = matchModelName(this.modelOptions.model, EModelEndpoint.anthropic);
     this.isClaude3 = modelMatch.startsWith('claude-3');
     this.isLegacyOutput = !modelMatch.startsWith('claude-3-5-sonnet');
-    this.supportsCacheControl = this.checkPromptCacheSupport(modelMatch);
+    this.supportsCacheControl =
+      this.options.promptCache && this.checkPromptCacheSupport(modelMatch);
 
     if (
       this.isLegacyOutput &&
@@ -489,7 +492,10 @@ class AnthropicClient extends BaseClient {
       identityPrefix = `${identityPrefix}\nYou are ${this.options.modelLabel}`;
     }
 
-    let promptPrefix = (this.options.promptPrefix || '').trim();
+    let promptPrefix = (this.options.promptPrefix ?? '').trim();
+    if (typeof this.options.artifactsPrompt === 'string' && this.options.artifactsPrompt) {
+      promptPrefix = `${promptPrefix ?? ''}\n${this.options.artifactsPrompt}`.trim();
+    }
     if (promptPrefix) {
       // If the prompt prefix doesn't end with the end token, add it.
       if (!promptPrefix.endsWith(`${this.endToken}`)) {
@@ -817,8 +823,10 @@ class AnthropicClient extends BaseClient {
   getSaveOptions() {
     return {
       maxContextTokens: this.options.maxContextTokens,
+      artifacts: this.options.artifacts,
       promptPrefix: this.options.promptPrefix,
       modelLabel: this.options.modelLabel,
+      promptCache: this.options.promptCache,
       resendFiles: this.options.resendFiles,
       iconURL: this.options.iconURL,
       greeting: this.options.greeting,

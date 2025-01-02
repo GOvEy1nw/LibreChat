@@ -76,12 +76,12 @@ function RequestPasswordReset() {
 
   return (
     <form
-      className="mt-6"
+      className="mt-8 space-y-6"
       aria-label="Password reset form"
       method="POST"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <div className="mb-2">
+      <div className="space-y-2">
         <div className="relative">
           <input
             type="email"
@@ -105,34 +105,42 @@ function RequestPasswordReset() {
             })}
             aria-invalid={!!errors.email}
             className="
-              webkit-dark-styles transition-color peer w-full rounded-2xl border border-border-light
-              bg-surface-primary px-3.5 pb-2.5 pt-3 text-text-primary duration-200 focus:border-green-500 focus:outline-none
+              peer w-full rounded-lg border border-gray-300 bg-transparent px-4 py-3
+              text-base text-gray-900 placeholder-transparent transition-all
+              focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20
+              dark:border-gray-700 dark:text-white dark:focus:border-green-500
             "
-            placeholder=" "
+            placeholder="email@example.com"
           />
           <label
             htmlFor="email"
             className="
-            absolute start-3 top-1.5 z-10 origin-[0] -translate-y-4 scale-75 transform bg-surface-primary px-2 text-sm text-text-secondary-alt duration-200
-            peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100
-            peer-focus:top-1.5 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-green-500
-            rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4
+              absolute -top-2 left-2 z-10 bg-white px-2 text-sm text-gray-600
+              transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base
+              peer-placeholder-shown:text-gray-500 peer-focus:-top-2 peer-focus:text-sm
+              peer-focus:text-green-600 dark:bg-gray-900 dark:text-gray-400
+              dark:peer-focus:text-green-500
             "
           >
             {localize('com_auth_email_address')}
           </label>
         </div>
         {errors.email && (
-          <span role="alert" className="mt-1 text-sm text-red-500 dark:text-red-900">
+          <p role="alert" className="text-sm font-medium text-red-600 dark:text-red-400">
             {errors.email.message}
-          </span>
+          </p>
         )}
       </div>
-      <div className="mt-6">
+      <div className="space-y-4">
         <button
           type="submit"
           disabled={!!errors.email}
-          className="btn-primary w-full transform rounded-2xl px-4 py-3 tracking-wide transition-colors duration-200"
+          className="
+            w-full rounded-2xl bg-green-600 px-4 py-3 text-sm font-medium text-white
+            transition-colors hover:bg-green-700 focus:outline-none focus:ring-2
+            focus:ring-green-500 focus:ring-offset-2 disabled:opacity-50
+            disabled:hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700
+          "
         >
           {localize('com_auth_continue')}
         </button>
